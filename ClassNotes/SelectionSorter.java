@@ -12,26 +12,26 @@ public class SelectionSorter
    {  
       for (int i = 0; i < a.length - 1; i++)
       {  
-         int maxPos = maximumPosition(a, i);
-         ArrayUtil.swap(a, maxPos, i);
+         int minPos = minimumPosition(a, i);
+         ArrayUtil.swap(a, minPos, i);
       }
    }
 
    /**
-      Finds the largest element in a tail range of the array.
+      Finds the smallest element in a tail range of the array.
       @param a the array to sort
       @param from the first position in a to compare
-      @return the position of the largest element in the
+      @return the position of the smallest element in the
       range a[from] . . . a[a.length - 1]
    */
-   private static int maximumPosition(int[] a, int from)
+   private static int minimumPosition(int[] a, int from)
    {  
-      int maxPos = from;
+      int minPos = from;
       for (int i = from + 1; i < a.length; i++)
       {
-         if (a[i] > a[maxPos]) { maxPos = i; }
+         if (a[i] < a[minPos]) { minPos = i; }
       }
-      return maxPos;
+      return minPos;
    }
 }
 
